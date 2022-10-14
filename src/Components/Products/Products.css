@@ -1,0 +1,12 @@
+.Products-container {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.Products {
+    border-right: 1px solid lightgrey;
+}
+
+.Order-Summery{
+}
