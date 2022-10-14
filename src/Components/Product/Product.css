@@ -1,0 +1,27 @@
+.product-img {
+    /* width: 300px; */
+}
+
+.card {
+    display: flex;
+    /* width: 80vw; */
+    margin-left: 20%;
+    margin-right: 2%;
+    border-bottom: 1px solid lightgray;
+}
+
+.product-content h3:nth-child(1) {
+    font-weight: 400;
+    color: rgb(46, 59, 238);
+    text-align: justify;
+}
+
+.btn-addToCart {
+    margin-bottom: 5px;
+    background-color: goldenrod;
+    border: 0;
+    border-radius: 5px;
+    font-size: larger;
+    cursor: pointer;
+    padding: 5px 30px;
+}
