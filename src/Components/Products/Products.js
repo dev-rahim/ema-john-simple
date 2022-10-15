@@ -13,19 +13,22 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
 
-    const [count, setCount] = useState(0)
+    const [cart, setCart] = useState([])
     const handleAddToCart = (product) => {
-        setCount = product + 1;
+        setCart([...cart, product])
+        // setProduct(product + 1);
+        // console.log(count);
+        // console.log(product.name);
     }
     return (
         <div className='Products-container'>
             <div className="Products">
                 {
-                    products.map(pd => <Product key={pd.key} addToCart={handleAddToCart} product={pd} />)
+                    products.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
                 }
             </div>
             <div className="Order-Summery">
-                <Cart />
+                <Cart cart={cart} />
             </div>
         </div>
     );

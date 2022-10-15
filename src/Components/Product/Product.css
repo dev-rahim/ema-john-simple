@@ -17,11 +17,11 @@
 }
 
 .btn-addToCart {
+    width: 200px;
     margin-bottom: 5px;
     background-color: goldenrod;
     border: 0;
     border-radius: 5px;
-    font-size: larger;
     cursor: pointer;
     padding: 5px 30px;
 }

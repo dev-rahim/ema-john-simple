@@ -1,7 +1,32 @@
 .cart-header {
     text-align: center;
+    margin-bottom: 5px;
 }
 
-.cart-header h3 {
+.cart-header h2 {
+    margin-bottom: 10px;
+}
+
+.cart-header h4 {
     font-weight: 400;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.cart-calculation {
+    text-align: justify;
+}
+
+.cart-calculation p,
+h3 {
+    display: flex;
+    justify-content: space-between;
+    /* color: aquamarine; */
+    margin: auto 20px;
+}
+
+.cart-calculation h3 {
+    color: chocolate;
+    font-weight: 700;
+    padding: 10px 0;
 }
