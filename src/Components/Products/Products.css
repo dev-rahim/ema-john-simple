@@ -10,3 +10,21 @@
 }
 
 .Order-Summery {}
+
+.search-input-container {
+    background-color: #020907c9;
+    text-align: center;
+}
+
+.input-filed {
+    margin: 0.5em;
+    width: 60%;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border-color: #020907c9;
+
+}
+
+.search-input-container input:focus {
+    outline-color: tomato;
+}

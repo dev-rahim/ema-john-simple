@@ -49,16 +49,21 @@ const Products = () => {
 
     }
     return (
-        <div className='Products-container'>
-            <div className="Products">
-                {
-                    products.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
-                }
+        <>
+            <div className="search-input-container">
+                <input className='input-filed' type="text" placeholder='search here' />
             </div>
-            <div className="Order-Summery">
-                <Cart cart={cart} />
+            <div className='Products-container'>
+                <div className="Products">
+                    {
+                        products.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
+                    }
+                </div>
+                <div className="Order-Summery">
+                    <Cart cart={cart} />
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
