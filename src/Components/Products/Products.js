@@ -11,7 +11,10 @@ const Products = () => {
     useEffect(() => {
         fetch('./products.json')
             .then(res => res.json())
-            .then(data => setProducts(data))
+            .then(data => {
+                setProducts(data);
+                setFilteredProduct(data);
+            })
     }, [])
 
     // get added cart items
@@ -48,15 +51,27 @@ const Products = () => {
         addToDb(product.key)
 
     }
+
+    const [filteredProduct, setFilteredProduct] = useState([]);
+
+    const handleSearch = (event) => {
+        const searchFieldValue = event.target.value;
+        const filteredProduct = products.filter(product => product.name.toLowerCase().includes(searchFieldValue.toLowerCase()));
+
+        setFilteredProduct(filteredProduct);
+        // console.log(products);
+        // console.log(filteredProduct);
+    }
+
     return (
         <>
             <div className="search-input-container">
-                <input className='input-filed' type="text" placeholder='search here' />
+                <input onChange={handleSearch} className='input-filed' type="text" placeholder='search here' />
             </div>
             <div className='Products-container'>
                 <div className="Products">
                     {
-                        products.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
+                        filteredProduct.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
                     }
                 </div>
                 <div className="Order-Summery">
