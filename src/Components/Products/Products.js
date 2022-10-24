@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
@@ -57,9 +58,9 @@ const Products = () => {
 
     const handleSearch = (event) => {
         const searchFieldValue = event.target.value;
-        const filteredProduct = products.filter(product => product.name.toLowerCase().includes(searchFieldValue.toLowerCase()));
+        const matchedProduct = products.filter(product => product.name.toLowerCase().includes(searchFieldValue.toLowerCase()));
 
-        setFilteredProduct(filteredProduct);
+        setFilteredProduct(matchedProduct);
         // console.log(products);
         // console.log(filteredProduct);
     }
@@ -76,7 +77,9 @@ const Products = () => {
                     }
                 </div>
                 <div className="Order-Summery">
-                    <Cart cart={cart} />
+                    <Cart cart={cart}>
+                        <Link className='btn-regular' to="/review"> Order Review</Link>
+                    </Cart>
                 </div>
             </div>
         </>

@@ -27,7 +27,7 @@ const Product = (props) => {
                 <h4>${price}</h4>
                 <p>only {stock} left in stock - order soon</p>
                 <button onClick={() => props.addToCartBtn(props.product)}
-                    className='btn-addToCart'>
+                    className='btn-regular'>
                     <span>{element} </span> add to cart</button>
             </div>
         </div>

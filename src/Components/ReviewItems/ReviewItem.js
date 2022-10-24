@@ -12,7 +12,7 @@ const ReviewItem = (props) => {
                 <h5>Quantity:{quantity}</h5>
                 <button
                     onClick={() => props.handleRemove(key)}
-                    className='btn-addToCart'>Remove</button>
+                    className='btn-regular'>Remove</button>
             </div>
         </div>
     );
