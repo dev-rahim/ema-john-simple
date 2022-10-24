@@ -1,7 +1,7 @@
 .Products-container {
     text-align: left;
     display: grid;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 70% 30%;
 }
 
 .Products {
@@ -9,7 +9,6 @@
     margin-top: 30px;
 }
 
-.Order-Summery {}
 
 .search-input-container {
     background-color: #020907c9;

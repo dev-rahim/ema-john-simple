@@ -13,7 +13,7 @@ const useCart = (products) => {
                 const addedProduct = products.find(product => product.key === key);
                 console.log(addedProduct);
                 if (addedProduct) {
-                    const quantity = addedProduct[key];
+                    const quantity = savedCart[key];
                     addedProduct.quantity = quantity;
                     storedCart.push(addedProduct);
                 }

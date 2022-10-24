@@ -1,18 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
-import { removeFromDb } from '../../utilities/fakedb';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItems/ReviewItem';
 
 const OrderReview = () => {
     const [products] = useProducts()
     const [cart, setCart] = useCart(products);
+    console.log(cart);
 
     const handleRemove = (key) => {
         const remainingItem = cart.filter(item => item.key !== key)
         setCart(remainingItem)
         removeFromDb(key)
+    }
+    const navigate = useNavigate();
+    const handlePlaceOrder = () => {
+        navigate('/place-order')
+        setCart([])
+        deleteShoppingCart(cart)
+
     }
     return (
         <div className='Products-container'>
@@ -23,7 +32,7 @@ const OrderReview = () => {
             </div>
             <div className='Order-Summery'>
                 <Cart cart={cart} >
-                    <button className='btn-regular'>Place Order</button>
+                    <button onClick={handlePlaceOrder} className='btn-regular'>Place Order</button>
                 </Cart>
             </div>
         </div>

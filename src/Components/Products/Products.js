@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
@@ -78,7 +78,7 @@ const Products = () => {
                 </div>
                 <div className="Order-Summery">
                     <Cart cart={cart}>
-                        <Link className='btn-regular' to="/review"> Order Review</Link>
+                        <NavLink className='btn-regular' to="/review"> Order Review</NavLink>
                     </Cart>
                 </div>
             </div>
