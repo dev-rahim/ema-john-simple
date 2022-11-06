@@ -44,7 +44,17 @@ const Products = () => {
 
     const [cart, setCart] = useState([])
     const handleAddToCart = (product) => {
-        setCart([...cart, product])
+
+        const exists = cart.find(pd => pd.key === product.key);
+        let newCart = []
+        if (exists) {
+            const remaining = cart.filter(pd => pd.key !== product.key)
+            exists.quantity = exists.quantity + 1;
+            newCart = [...remaining, product];
+        } else {
+            newCart = [...cart, product];
+        }
+        setCart(newCart)
         // setProduct(product + 1);
         // console.log(count);
         // console.log(product.name);

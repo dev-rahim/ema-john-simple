@@ -26,4 +26,5 @@
 
 .search-input-container input:focus {
     outline-color: tomato;
+    color: lit;
 }
