@@ -18,10 +18,10 @@ const OrderReview = () => {
     }
     const navigate = useNavigate();
     const handlePlaceOrder = () => {
-        navigate('/place-order')
-        setCart([])
-        deleteShoppingCart(cart)
-
+        navigate('/shipping')
+        // navigate('/place-order')
+        // setCart([])
+        // deleteShoppingCart(cart)
     }
     return (
         <div className='Products-container'>
@@ -32,7 +32,7 @@ const OrderReview = () => {
             </div>
             <div className='Order-Summery'>
                 <Cart cart={cart} >
-                    <button onClick={handlePlaceOrder} className='btn-regular'>Place Order</button>
+                    <button onClick={handlePlaceOrder} className='btn-regular'>Proceed to Shipping</button>
                 </Cart>
             </div>
         </div>
