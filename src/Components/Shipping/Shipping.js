@@ -12,10 +12,10 @@ const Shipping = () => {
         <div>
             <form className='shipping-from' onSubmit={handleSubmit(onSubmit)}>
                 <input defaultValue={user.displayName} placeholder='name' {...register("name")} />
-                <input defaultValue={user?.email} placeholder='email' {...register("email", { required: true })} />
                 <input defaultValue="" placeholder='address' {...register("address")} />
                 <input defaultValue="" placeholder='city' {...register("city")} />
                 <input defaultValue="" placeholder='phone' {...register("phone")} />
+                <input defaultValue={user?.email} placeholder='email' {...register("email", { required: true })} />
                 {errors.email && <span className='error'>This field is required</span>}
                 <input type="submit" />
             </form>

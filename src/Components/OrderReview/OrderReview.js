@@ -9,7 +9,7 @@ import ReviewItem from '../ReviewItems/ReviewItem';
 const OrderReview = () => {
     const [products] = useProducts()
     const [cart, setCart] = useCart(products);
-    console.log(cart);
+    // console.log(cart);
 
     const handleRemove = (key) => {
         const remainingItem = cart.filter(item => item.key !== key)
@@ -17,7 +17,7 @@ const OrderReview = () => {
         removeFromDb(key)
     }
     const navigate = useNavigate();
-    const handlePlaceOrder = () => {
+    const handleProceedToShipping = () => {
         navigate('/shipping')
         // navigate('/place-order')
         // setCart([])
@@ -32,7 +32,7 @@ const OrderReview = () => {
             </div>
             <div className='Order-Summery'>
                 <Cart cart={cart} >
-                    <button onClick={handlePlaceOrder} className='btn-regular'>Proceed to Shipping</button>
+                    <button onClick={handleProceedToShipping} className='btn-regular'>Proceed to Shipping</button>
                 </Cart>
             </div>
         </div>

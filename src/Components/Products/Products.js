@@ -9,13 +9,17 @@ import './Products.css'
 const Products = () => {
 
     const [products, setProducts] = useState([]);
+    const [pageCount, setPageCount] = useState(0)
+    const [page, setPage] = useState(0)
     // load data from api 
     useEffect(() => {
-        fetch('./products.json')
+        fetch('http://localhost:5000/products/')
             .then(res => res.json())
             .then(data => {
-                setProducts(data);
-                setFilteredProduct(data);
+                setProducts(data.products);
+                setFilteredProduct(data.products);
+                const count = data.count;
+                setPageCount(Math.ceil(count / 10))
             })
     }, [])
 
@@ -81,10 +85,18 @@ const Products = () => {
                 <input onChange={handleSearch} className='input-filed' type="text" placeholder='search here' />
             </div>
             <div className='Products-container'>
+
                 <div className="Products">
                     {
                         filteredProduct.map(pd => <Product key={pd.key} addToCartBtn={handleAddToCart} product={pd} />)
                     }
+                    <div className="pagination">
+                        {
+                            [...Array(pageCount).keys()]
+                                .map(number => <button className={page === number ? 'selected' : ''} key={number} onClick={() => { setPage(number) }}>{number}</button>
+                                )
+                        }
+                    </div>
                 </div>
                 <div className="Order-Summery">
                     <Cart cart={cart}>
@@ -92,6 +104,7 @@ const Products = () => {
                     </Cart>
                 </div>
             </div>
+
         </>
     );
 };
