@@ -11,17 +11,20 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [pageCount, setPageCount] = useState(0)
     const [page, setPage] = useState(0)
-    // load data from api 
+
+    // load data from api
+    const size = 10;
     useEffect(() => {
-        fetch('http://localhost:5000/products/')
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products);
                 setFilteredProduct(data.products);
+
                 const count = data.count;
-                setPageCount(Math.ceil(count / 10))
+                setPageCount(Math.ceil(count / size))
             })
-    }, [])
+    }, [page])
 
     // get added cart items
     useEffect(() => {
@@ -93,7 +96,7 @@ const Products = () => {
                     <div className="pagination">
                         {
                             [...Array(pageCount).keys()]
-                                .map(number => <button className={page === number ? 'selected' : ''} key={number} onClick={() => { setPage(number) }}>{number}</button>
+                                .map(number => <button className={page === number ? 'selected' : ''} key={number} onClick={() => { setPage(number) }}>{number + 1}</button>
                                 )
                         }
                     </div>
